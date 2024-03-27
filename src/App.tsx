@@ -31,21 +31,34 @@ function App() {
 
  const handleDrop = (e: React.DragEvent<HTMLDivElement>, status: Status) => {
   e.preventDefault()
+  setHoverDiv(null)
   const id = e.dataTransfer.getData("id")
   const task = tasks.find((task) => task.id === id)
   if(task) updateTask({...task, status})
  }
+
+ const [HoverDiv, setHoverDiv] = useState<Status | null>(null)
+
+ const handleDragEnter = (status: Status) => {
+  setHoverDiv(status)
+ }
+
   return (
     <>
     <h1 className="text-4xl font-bold py-4 px-2 text-slate-700">Kanban-Board</h1>
     <div className='flex divide-x justify-center'>
       {columns.map((column) => (
-        <div onDrop={(e) => handleDrop(e, column.status)} onDragOver={(e)=> e.preventDefault()} className='px-2'>
+        <div onDrop={(e) => handleDrop(e, column.status)} 
+        onDragOver={(e)=> e.preventDefault()}
+        onDragEnter={()=> handleDragEnter(column.status)}
+        className='px-2'>
           <h2 className="text-2xl font-bold py-1 text-gray-800">{column.status}</h2>
-          <p className="font-bold text-indigo-400">Total: {column.tasks.reduce((total, task) => total + (task?.points || 0), 0)}</p>
+          <div className="font-bold text-indigo-400">Total: {column.tasks.reduce((total, task) => total + (task?.points || 0), 0)}</div>
+          <div className={`h-full ${(HoverDiv) === column.status? 'bg-gray-100': ''}`}>
           {column.tasks.map((task) => 
           <TaskCard task = {task} updateTaskPoints={updateTaskPoints} updateTaskTitle={updateTaskTitle}/>
           )}
+          </div>
         </div>
       ))}
     </div>
