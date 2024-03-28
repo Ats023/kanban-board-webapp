@@ -1,21 +1,37 @@
 //PROGRESS: 1.04.18
-import { useState } from 'react'
+import { ReactEventHandler, useEffect, useState } from 'react'
 import './App.css'
 import TaskCard from './components/TaskCard'
-import { Task, Status, tasks as initialTasks, statuses } from './utils/data-tasks'
+import { Task, Status, statuses } from './utils/data-tasks'
 import AddTaskForm from './components/AddTaskForm'
 
 function App() {
-  const [tasks, setTasks] = useState<Task[]>(initialTasks)
+  const [tasks, setTasks] = useState<Task[]>([])
   const columns = statuses.map((status) => {
-  const tasksInColumn = tasks.filter((task) => task.status === status)
+    const tasksInColumn = tasks.filter((task) => task.status === status)
     return {
       status,
       tasks: tasksInColumn,
     }
   })
+  
+  const [HoverDiv, setHoverDiv] = useState<Status | null>(null)
+
+  useEffect(() => {
+    fetch("http://localhost:3000/tasks").then((res)=>res.json()).then((data)=>{
+      console.log("fetching!")
+      setTasks(data)
+    })
+  },[])
 
   const updateTask = (task: Task) => {
+    fetch(`http://localhost:3000/tasks/${task.id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type":"application/json"
+      },
+      body: JSON.stringify(task)
+    })
     const updatedTasks = tasks.map((t) => {
       return t.id === task.id? task: t
     })
@@ -38,7 +54,6 @@ function App() {
     if(task) updateTask({...task, status})
   }
 
-  const [HoverDiv, setHoverDiv] = useState<Status | null>(null)
 
   const handleDragEnter = (status: Status) => {
     setHoverDiv(status)
@@ -55,6 +70,26 @@ function App() {
   const handleCancelForm = () => {
     setShowForm(false)
   }
+
+  // const handleChange = (e) => {
+  //   const { name, value } = e.target;
+  //   setFormData({
+  //     ...formData,
+  //     [name]: value
+  //   });
+  // };
+
+  // const handleSubmit = (e: React.FormEvent) => {
+  //   e.preventDefault()
+
+  //   // fetch(`fetch("http://localhost:3000/tasks")`, {
+  //   //   method: "POST",
+  //   //   headers: {
+  //   //     "Content-Type":"application/json"
+  //   //   },
+  //   //   body: JSON.stringify(task)
+  //   // })
+  // }
 
 
   return (

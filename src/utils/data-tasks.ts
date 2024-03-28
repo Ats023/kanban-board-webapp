@@ -11,41 +11,6 @@ export type Task = {
     points?: fibPoints,
   }
 
-export const tasks: Task[] = [
-    {
-      id: "SZ-01",
-      title: "Conduct Market Survey",
-      points: 5,
-      status: 'Backlog',
-    },
-    {
-      id: "SZ-02",
-      title: "Brainstorm ideas",
-      points: 1,
-      status: 'In-progress',
-    },
-    {
-      id: "SZ-03",
-      title: "SWOT Analysis",
-      points: 3,
-      status: 'To-Do',
-    },
-    {
-      id: "SZ-04",
-      title: "Prepare SRS",
-      points: 5,
-      status: 'To-Do',
-    },
-    {
-      id: "SZ-06",
-      title: "Conduct Market Survey",
-      points: 5,
-      status: 'Done',
-    },
-    {
-      id: "SZ-07",
-      title: "Conduct Market Survey",
-      points: 13,
-      status: 'Review',
-    },
-  ]
+// export const tasks: Task[] = [
+    
+//   ]
