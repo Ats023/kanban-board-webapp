@@ -3,3 +3,12 @@
     border-radius: 50%; /* Make the shadow round */
     cursor: pointer;
 }
+
+.kanban-app {
+    background-image: url('./assets/bg-2.png');
+    background-size: cover; /* Adjust as needed */
+    background-repeat: no-repeat;
+    background-clip: border-box;
+    background-position: center; /* Adjust as needed */
+    background-attachment: fixed;
+}

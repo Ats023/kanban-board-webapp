@@ -1,6 +1,5 @@
 import { useState } from 'react'
-import { Task, Status, statuses } from '../utils/data-tasks'
-
+import { Task, Status, statuses, fibPoints } from '../utils/data-tasks'
 
 const AddTaskForm = ({status, handleCancelForm}:
     {
@@ -12,16 +11,17 @@ const AddTaskForm = ({status, handleCancelForm}:
         const [formData, setFormData] = useState({
             id:"",
             title:"",
-            points:"",
+            points: 1,
             status: status,
         })
         const handleChange = (e) => {
-            const { name, value } = e.target;
+            const { name, value } = e.target
+            let newValue = value
             setFormData({
               ...formData,
-              [name]: value
-            });
-          };
+              [name]: newValue
+            })
+          }
 
         const handleSubmit = (e) => {
             e.preventDefault();
@@ -32,7 +32,7 @@ const AddTaskForm = ({status, handleCancelForm}:
                 "Content-Type":"application/json"
             },
             body: JSON.stringify(formData)
-            }).then(()=>{return fetch("http://localhost:3000/tasks")})
+            }).then(()=>{window.location.reload()})
             console.log(formData);
             handleCancelForm()
         };
@@ -74,7 +74,7 @@ const AddTaskForm = ({status, handleCancelForm}:
                     name="points"
                     value={formData.points}
                     onChange={handleChange}
-                    />
+                    /> 
                 </div>
                 <div className="my-3 flex flex-row justify-between w-full">
                     <button className="block bg-green-500 text-white px-2 py-1 border rounded-md hover:shadow-md" type="submit">Submit</button>

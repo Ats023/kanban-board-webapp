@@ -4,6 +4,7 @@ import './App.css'
 import TaskCard from './components/TaskCard'
 import { Task, Status, statuses } from './utils/data-tasks'
 import AddTaskForm from './components/AddTaskForm'
+import './assets/bg-1.png'
 
 function App() {
   const [tasks, setTasks] = useState<Task[]>([])
@@ -71,6 +72,7 @@ function App() {
     setShowForm(false)
   }
 
+
   // const handleChange = (e) => {
   //   const { name, value } = e.target;
   //   setFormData({
@@ -93,10 +95,12 @@ function App() {
 
 
   return (
-    <>
+    <div>
     {/* TITLE */}
-    <h1 className="text-4xl font-bold py-4 px-2 text-slate-700">Kanban-Board</h1>
+    <h1 className="text-5xl font-bold pt-4 pb-2 px-2 text-slate-700">Kanban-Board</h1>
+    <p className="text-2xl font-bold text-slate-600 pb-4 px-2">The ultimate companion for productivity</p>
     {showForm && <AddTaskForm status={formStatus} handleCancelForm={handleCancelForm}/>}
+
     {/* TASK COLUMNS */}
     <div className='flex divide-x justify-center'>
       {columns.map((column) => (
@@ -116,13 +120,13 @@ function App() {
           <div className="font-bold text-indigo-400">Total: {column.tasks.reduce((total, task) => total + (task?.points || 0), 0)}</div>
           <div className={`h-full ${(HoverDiv) === column.status? 'bg-gray-100': ''}`}>
           {column.tasks.map((task) => 
-          <TaskCard task = {task} updateTaskPoints={updateTaskPoints} updateTaskTitle={updateTaskTitle}/>
+          <TaskCard task = {task} updateTaskPoints={updateTaskPoints} updateTaskTitle={updateTaskTitle} />
           )}
           </div>
         </div>
       ))}
     </div>
-    </>
+    </div>
   )
 }
 

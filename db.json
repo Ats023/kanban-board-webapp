@@ -3,14 +3,8 @@
     {
       "id": "SZ-01",
       "title": "Conduct Market Survey",
-      "points": 5,
-      "status": "In-progress"
-    },
-    {
-      "id": "SZ-02",
-      "title": "Brainstorm ideas",
       "points": 8,
-      "status": "Review"
+      "status": "To-Do"
     },
     {
       "id": "SZ-03",
@@ -22,49 +16,43 @@
       "id": "SZ-04",
       "title": "Prepare SRS",
       "points": 5,
-      "status": "To-Do"
+      "status": "In-progress"
     },
     {
       "id": "SZ-06",
       "title": "Start High Level Design",
       "points": 5,
-      "status": "To-Do"
+      "status": "Review"
     },
     {
       "id": "SZ-07",
       "title": "Introductory meeting",
       "points": 13,
-      "status": "Done"
-    },
-    {
-      "id": "SZ-21",
-      "title": "abcfd",
-      "points": "1",
-      "status": "In-progress"
-    },
-    {
-      "id": "SZ-11",
-      "title": "new task",
-      "points": "1",
-      "status": "To-Do"
-    },
-    {
-      "id": "SZ-10",
-      "title": "afdczadc",
-      "points": "2",
-      "status": "Backlog"
-    },
-    {
-      "id": "SZ-09",
-      "title": "Another task lol",
-      "points": "2",
       "status": "Review"
     },
     {
-      "id": "SZ-19",
-      "title": "kbfkabfcpnAs",
-      "points": "2",
+      "id": "SZ-15",
+      "title": "Brainstorming session",
+      "points": 1,
       "status": "Done"
+    },
+    {
+      "id": "SZ-20",
+      "title": "dummy task 1",
+      "points": 1,
+      "status": "To-Do"
+    },
+    {
+      "id": "SZ-21",
+      "title": "dummy task 2",
+      "points": 1,
+      "status": "In-progress"
+    },
+    {
+      "id": "SZ-08",
+      "title": "dummy task 3",
+      "points": 1,
+      "status": "To-Do"
     }
   ]
 }
