@@ -9,4 +9,4 @@ The Kanban-Board project applies agile project management principles featuring t
 3. Drag-and-Drop: All task cards are draggable and can be dragged to any other status column. The app automatically updates the status of the task.
 4. Delete Task: Click on the 'trash' icon to delete the task altogether.
 
-![kanban-board-overview](https://github.com/Ats023/kanban-board-webapp/assets/122550503/e0585efe-737f-4757-a5d1-3021c46a0849)
+![kanban-board-overview](https://github.com/Ats023/kanban-board-webapp/assets/122550503/738e1422-d744-4e52-8199-6cac44f7ba9d)
